@@ -60,10 +60,12 @@ export const login = async (req,res)=>{
     const { password: userPassword, ...userInfo } = user;
 
     res.cookie("token", token, {
-        httpOnly: true,
-        secure:true,
+        //httpOnly: true,
+        //secure:true,
         maxAge: age,
-        sameSite:"strict"}).status(200).json(userInfo);
+        //sameSite:"strict"}
+        )
+        .status(200).json(userInfo);
       return token;
   } catch (err) {
     console.log(err);
