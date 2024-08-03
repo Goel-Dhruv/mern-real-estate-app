@@ -42,7 +42,7 @@ export const login = async (req,res)=>{
 
     console.log("not possible to login")
 
-     console.log(process.env.JWT_SECRET_KEY)
+     //console.log(process.env.JWT_SECRET_KEY)
 
   try {
     // CHECK IF THE USER EXISTS
