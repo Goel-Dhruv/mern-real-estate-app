@@ -13,8 +13,6 @@ export const verifyToken = (req, res, next) => {
     return res.status(401).json({ message: "No cookies found" });
   }
   const token = req.cookies.token;
-   console.log(token)
-   
   if (!token) return res.status(401).json({ message: "Not Authenticated Middleware!" });
 
   jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
