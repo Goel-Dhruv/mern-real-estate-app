@@ -4,7 +4,7 @@ import { Server } from "socket.io";
 console.log("Socket io connected at port");
 const io = new Server({
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://homequest-4hli.onrender.com",
   },
 });
 
