@@ -63,7 +63,7 @@ export const login = async (req,res)=>{
         httpOnly: true,
         secure:true,
         maxAge: age,
-        sameSite:"strict"}).status(200).json(userInfo);
+        sameSite:"strict"}).status(200).json(userInfo,token);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to login!" });
