@@ -40,6 +40,8 @@ export const register = async (req,res)=>{
 export const login = async (req,res)=>{
     const { username, password } = req.body;
 
+     console.log(process.env.JWT_SECRET_KEY)
+
   try {
     // CHECK IF THE USER EXISTS
 
@@ -58,8 +60,6 @@ export const login = async (req,res)=>{
 
     // GENERATE COOKIE TOKEN AND SEND TO THE USER
 
-      console.log(process.env.JWT_SECRET_KEY)
-    
     const age = 1000 * 60 * 60 * 24 * 7*100000000000000000;
 
     const token = jwt.sign({id:user.id},process.env.JWT_SECRET_KEY, { expiresIn: age });
