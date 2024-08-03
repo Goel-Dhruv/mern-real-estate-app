@@ -63,7 +63,8 @@ export const login = async (req,res)=>{
         //httpOnly: true,
         //secure:true,
         maxAge: age,
-        //sameSite:"strict"}
+        //sameSite:"strict"
+        }
         )
         .status(200).json(userInfo);
       return token;
