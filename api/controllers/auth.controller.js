@@ -42,7 +42,7 @@ export const login = async (req,res)=>{
 
     console.log("not possible to login")
 
-     //console.log(process.env.JWT_SECRET_KEY)
+     console.log(process.env.JWT_SECRET_KEY)
 
   try {
     // CHECK IF THE USER EXISTS
@@ -62,16 +62,14 @@ export const login = async (req,res)=>{
 
     // GENERATE COOKIE TOKEN AND SEND TO THE USER
 
-    const age = 1000 * 60 * 60 * 24 * 7*100000000000000000;
-
-    const token = jwt.sign({id:user.id},process.env.JWT_SECRET_KEY);
+    const token = jwt.sign({id:user.id},process.env.JWT_SECRET_KEY,expiresIn:"15d");
 
     const { password: userPassword, ...userInfo } = user;
 
     res.cookie("token", token, {
         httpOnly: true,
         secure:true,
-        maxAge: age,
+        maxAge: "15d",
         sameSite:"strict"
         }
         )
