@@ -5,9 +5,9 @@ import { addPost, deletePost, getPost, getPosts, updatePost } from "../controlle
 const router = express.Router();
 
 router.get("/", getPosts);
-router.get("/:id", getPost);
-router.post("/", addPost);
-router.put("/:id", updatePost);
-router.delete("/:id", deletePost);
+router.get("/:id", verifyToken ,getPost);
+router.post("/", verifyToken ,addPost);
+router.put("/:id",verifyToken , updatePost);
+router.delete("/:id",verifyToken , deletePost);
 
 export default router;
