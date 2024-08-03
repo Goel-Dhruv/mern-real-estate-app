@@ -64,6 +64,7 @@ export const login = async (req,res)=>{
         secure:true,
         maxAge: age,
         sameSite:"strict"}).status(200).json(userInfo);
+      return token;
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to login!" });
